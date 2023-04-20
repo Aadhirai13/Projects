@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Snackiee</title>
+
+
+<!-- font awesome icons-->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous" />
+
+<!-- material icons-->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<script src="https://kit.fontawesome.com/b14772e794.js"
+	crossorigin="anonymous"></script>
+
+<!-- bootstrap -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+<body onload="getTicketId()">
+
+	<!-- ticked id -->
+	<div id="ticketid" class="ticket border-0 rounded" style="width: 40vw;margin-left: 28vw;margin-top: 30vh;background-color: rgb(170, 170, 170);"></div>
+
+	<!-- navbar -->
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar">
+		<div class="container-fluid">
+			<div class="d-flex justify-content-center align-items-center">
+				<img src="burger.gif" alt="snackiee"
+					class="bg-light border-0 rounded-pill me-2" style="width: 28px;" />
+				<i><h1 class="navbar-brand pt-2 text-light">SNACKIEE</h1></i>
+			</div>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li onclick="viewCategories()"
+						class="nav-item d-flex ms-3 me-3 p-3 border-top border-right rounded justify-content-center align-items-center">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+							fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                  <path
+								d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z" />
+                </svg> <a class="nav-link text-light">Home</a>
+					</li>
+					<li onclick="viewCart()"
+						class="nav-item d-flex ms-3 me-3 p-3 border-top border-right rounded justify-content-center align-items-center">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+							fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+                  <path
+								d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+                </svg> <a class="nav-link text-light">Cart</a>
+					</li>
+					<li onclick="registerVisible()"
+						class="nav-item d-flex ms-3 me-3 pt-3 pb-3 border-top border-right rounded justify-content-center align-items-center">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+							fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                  <path
+								d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                </svg> <a class="nav-link text-light">Profile</a>
+					</li>
+					<li onclick="showorderhistory()"
+						class="nav-item d-flex ms-3 me-3 pt-3 pb-3 border-top border-right rounded justify-content-center align-items-center">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+							fill="currentColor" class="bi bi-bag-check" viewBox="0 0 16 16">
+  					<path fill-rule="evenodd"
+								d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+  					<path
+								d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+				</svg> <a class="nav-link text-light" onclick="">Orders</a>
+					</li>
+				</ul>
+				<div class="d-flex">
+					<input class="form-control me-2" type="search"
+						placeholder="Search snacks..." aria-label="Search" id="snacksearch">
+					<button class="search btn btn-outline-light" type="submit" onclick="searchsnacks()">
+						<svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+							fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path
+								d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                </svg>
+					</button>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<!-- advertisement -->
+	<div id="carouselExampleIndicators"
+		class="container-fluid carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carouselExampleIndicators" data-slide-to="0"
+				class="active"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img class="ad d-block w-100"
+					src="https://blog.daraz.pk/wp-content/uploads/2020/04/IFTAR-SNACKS-BANNER.jpg"
+					alt="First slide">
+			</div>
+			<div class="carousel-item">
+				<img class="ad d-block w-100"
+					src="https://cpimg.tistatic.com//59114/17/template_photo_3.jpg"
+					alt="Second slide">
+			</div>
+			<div class="carousel-item">
+				<img class="ad d-block w-100"
+					src="https://snacatac.in/wp-content/uploads/2021/10/Banner-Paani-Puri-1-copy.jpg"
+					alt="Third slide">
+			</div>
+		</div>
+		<a class="carousel-control-prev" href="#carouselExampleIndicators"
+			role="button" data-slide="prev"> <span
+			class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+			class="sr-only">Previous</span>
+		</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
+			role="button" data-slide="next"> <span
+			class="carousel-control-next-icon" aria-hidden="true"></span> <span
+			class="sr-only">Next</span>
+		</a>
+	</div>
+
+	<!-- categories -->
+	<div id="items" class="border-0 container d-flex flex-wrap"
+		style="margin-top: 60px;"></div>
+
+	<!-- toast -->
+	<div id="toast">
+		<div id="img"></div>
+		<div id="desc"></div>
+	</div>
+	
+	<!-- Register modal -->
+	<div class="modal" id="registerModal" style="padding-top: 20px;">
+		<div class="modal-content container" style="width: 40vw">
+			<div class="modal-header">
+				<h2 class="fs-5 text-wrap text-center">User Registration</h2>
+				<button type="button" class="close" onclick="registerHide()">&times;</button>
+			</div>
+			<div class="modal-body">
+				<div class="mb-4">
+					<label for="exampleFormControlInput1" class="form-label">Enter
+						User Name</label> <input type="text" class="form-control" name="username"
+						id="regusername" placeholder="name" />
+				</div>
+				<div class="mb-4">
+					<label for="exampleFormControlInput2" class="form-label">Enter
+						Email ID</label> <input type="email" class="form-control" name="email"
+						id="regmailid" placeholder="a@abc.com" />
+				</div>
+				<div class="mb-4">
+					<label for="exampleFormControlInput1" class="form-label">Enter
+						Password</label> <input type="password" class="form-control"
+						name="password" id="regpassword1" placeholder="password" />
+				</div>
+				<p class="fs-6 fw-light text-secondary">password should have a
+					minimum length of 8 characters | password should contains 1
+					uppercase , 1 lowercase , 1 number and 1 special characters</p>
+				<div class="mb-4">
+					<label for="exampleFormControlInput1" class="form-label">Re-enter
+						Password</label> <input type="password" class="form-control"
+						name="cnfrmpassword" id="regpassword2"
+						placeholder="re-enter password" />
+				</div>
+				<div class="text-center">
+					<button class="btn btn-dark" onclick="verifyPassword()">CREATE
+						ACCOUNT</button>
+				</div>
+				<div class="text-center d-flex justify-content-center mt-3">
+					<p>If you already have an account...</p>
+					<span onclick="userLogin()"
+						class="link fst-italic text-decoration-underline"> login
+						here</span>
+				</div>
+				<p id="regerror"></p>
+				<p onclick="logout()"
+					class="link fst-italic text-decoration-underline d-flex justify-content-end">logout</p>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Login modal -->
+	<div id="loginModal" class="modal" style="padding-top: 20px;">
+		<div class="modal-content container" style="width: 35vw;">
+			<div class="modal-header">
+				<h2 class="fs-5 text-wrap text-center">User Login</h2>
+				<span class="close" onclick="loginHide()">&times;</span>
+			</div>
+			<div class="modal-body">
+				<div class="mb-4">
+					<label for="exampleFormControlInput2" class="form-label">Enter
+						Email ID</label> <input type="email" class="form-control" name="email"
+						id="loginmailid" placeholder="a@abc.com" />
+				</div>
+				<div class="mb-4">
+					<label for="exampleFormControlInput1" class="form-label">Enter
+						Password</label> <input type="password" class="form-control"
+						name="password" id="loginpassword" placeholder="password" />
+					<p class="link fst-italic text-decoration-underline">forget password</p>
+				</div>
+				<p id="loginerror" class="text-danger"></p>
+				<div class="text-center">
+					<button onclick="login()" class="btn btn-dark">LOGIN</button>
+				</div>
+			</div>
+			<div class="modal-footer"></div>
+		</div>
+	</div>
+	
+	<!-- Review modal -->
+	<div id="reviewmodal" class="modal" style="padding-top: 20px;"></div>
+	
+	<!-- show review modal -->
+	<div id="showreviewmodal" class="modal" style="padding-top: 20px;">
+		<div class="modal-content container" style="width: 35vw;">
+			<div class="modal-header">
+				<h2 class="fs-5 text-wrap text-center">User Reviews</h2>
+				<span class="close" onclick="showreviewHide()">&times;</span>
+			</div>
+			<div id="showreviewmodalbody" class="modal-body" style="overflow-y: scroll;"></div>
+		</div>
+	</div>
+
+	<!-- show cart -->
+	<table id="cart-heading" class="table container">
+		<thead>
+			<tr
+				class="c-head d-flex container-fluid justify-content-between align-items-center border-bottom border-dark p-0 mt-3"
+				style="width: 80vw">
+				<th scope="col">SNACKS</th>
+				<th scope="col">QUANTITY</th>
+				<th scope="col">SUB TOTAL</th>
+			</tr>
+		</thead>
+	</table>
+	<table class="table container ms-5">
+		<tbody id="cart-body">
+		</tbody>
+	</table>
+	
+	<div id="checkout" class="ckout container align-items-center justify-content-end mb-3">
+		<div class=" ckout-btn btn btn-success" onclick="checkout()">Proceed
+			to Checkout >></div>
+	</div>
+
+	<!-- empty cart -->
+	<div id="empty-cart"
+		class="d-flex align-items-center justify-content-around"></div>
+
+	<!-- payment -->
+	<div id="payment-info">
+		<div class="container mt-3">
+			<h4 class="text-start" style="padding-left: 25%;">Payment Information</h4>
+			<p class="text-start" style="padding-left: 25%;">Please complete below :</p>
+		</div>
+		<div id="inner-payment" class="container d-flex flex-column align-items-center justify-content-center"></div>
+	</div>
+	
+	<!-- qr code -->
+	<div id="qrcode"></div>
+	
+	<!-- payment confirm -->
+	<div id="payment-confirm">
+	    <div class="d-flex align-items-center justify-content-around mt-5">
+	      <img src="shopping-bag.gif" style="width: 40vw;height: 60vh;"/>
+	      <h2>Ordered Successfully...Please wait for few minutes</h2>
+	    </div>
+  	</div>
+  	
+  	<!-- order history -->
+  	<div id="orderhistory" class="container mt-3"></div>
+  	
+  	<!-- order details -->
+  	<table id="order-details-heading" class="table container">
+		<thead>
+			<tr
+				class="c-head d-flex container-fluid justify-content-between align-items-center border-bottom border-dark p-3 mt-3"
+				style="width: 80vw">
+				<th scope="col">SNACKS</th>
+				<th scope="col">SUB TOTAL</th>
+				<th scope="col">Review</th>
+			</tr>
+		</thead>
+	</table>
+	<table class="table container ms-5">
+		<tbody id="order-details-body">
+		</tbody>
+	</table>
+    
+    <!-- empty orders -->
+	<div id="empty-orders"
+		class="d-flex align-items-center justify-content-around"></div>
+	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+		rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+		crossorigin="anonymous" />
+
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>aadhirai-zsgs-servlet-project</display-name>
+<welcome-file-list>
+<welcome-file>home.jsp</welcome-file>   
+</welcome-file-list> 
+  
+    <servlet>
+  <servlet-name>StoreData</servlet-name> <!-- user defined servlet name -->
+  <servlet-class>com.zoho.zsgs.StoreData</servlet-class>
+  </servlet>
+  
+  <servlet-mapping> <!-- to map the above given servlet -->
+  <servlet-name>StoreData</servlet-name> <!--  servlet name same as above -->
+  <url-pattern>/storeData</url-pattern> <!-- this print name is same as action attribute's value in form -->
+  </servlet-mapping>
+  
+  <!-- <servlet>
+  <servlet-name>loadBalance</servlet-name> 
+  <servlet-class>com.zoho.zsgs.Welcome</servlet-class>
+  </servlet>  
+  
+  <servlet-mapping> 
+  <servlet-name>loadBalance</servlet-name> 
+  <url-pattern>/*</url-pattern>
+  </servlet-mapping> -->
+  
+</web-app>
